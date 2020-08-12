@@ -8,17 +8,16 @@
     <body>
        <div id="information_panel">
             <div id="password" class="card">
-                <label>Some Generated Password Here</label>
+                <h2>Some Generated Password Here</h2>
                 <input type ="image" id="copy" id="copy" src="images/copyicon.png" alt="Copy">
             </div>
-            <br>
-            <label>Password Strengh: </label>
-            <br>
-            <label>Years to Crack: </label>
+            <h2>Password Strengh: Undefined</h2>
+            <h2>Years to Crack: Undefined</h2>
         </div>
         <div id="access-panel">
             <h1>Password Generator</h1>
             <div id="container">
+                <div id="message"></div>
                 <div class="accessors">
                     <label class="access_labels">Password Length</label>
                     <input type="number" id="password_length" class="access_inputs">
@@ -42,5 +41,6 @@
                 <input type ="button" id="generate_password" value="Generate Password">
             </div>
         </div>
+        <script src="main.js"></script>
     </body>
 </html>
