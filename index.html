@@ -2,9 +2,45 @@
 <html>
     <head>
         <title>Password Generator</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1>Password Generator</h1>
+       <div id="information_panel">
+            <div id="password" class="card">
+                <label>Some Generated Password Here</label>
+                <input type ="image" id="copy" id="copy" src="images/copyicon.png" alt="Copy">
+            </div>
+            <br>
+            <label>Password Strengh: </label>
+            <br>
+            <label>Years to Crack: </label>
+        </div>
+        <div id="access-panel">
+            <h1>Password Generator</h1>
+            <div id="container">
+                <div class="accessors">
+                    <label class="access_labels">Password Length</label>
+                    <input type="number" id="password_length" class="access_inputs">
+                </div>
+                <div class="accessors">
+                    <label class="access_labels">Uppercase Letters</label>
+                    <input type="checkbox" id="uppercase" class="access_inputs">
+                </div>
+                <div class="accessors">
+                    <label class="access_labels">Lowercase Letters</label>
+                    <input type="checkbox" id="lowercase" class="access_inputs">
+                </div>
+                <div class="accessors">
+                    <label class="access_labels">Symbols</label>
+                    <input type="checkbox" id="symbols" class="access_inputs">
+                </div>
+                <div class="accessors">
+                    <label class="access_labels">Numbers</label>
+                    <input type="checkbox" id="numbers" class="access_inputs">
+                </div>
+                <input type ="button" id="generate_password" value="Generate Password">
+            </div>
+        </div>
     </body>
 </html>
