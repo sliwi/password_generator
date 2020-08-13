@@ -8,8 +8,8 @@
     <body>
        <div id="information_panel">
             <div id="password" class="card">
-                <h2>Some Generated Password Here</h2>
-                <input type ="image" id="copy" id="copy" src="images/copyicon.png" alt="Copy">
+                <h2 id="password_text">Some Generated Password Here</h2>
+                <input type ="button" id="copy" class="btn btn-dark" value="Copy">
             </div>
             <h2>Password Strengh: Undefined</h2>
             <h2>Years to Crack: Undefined</h2>
@@ -38,7 +38,7 @@
                     <label class="access_labels">Numbers</label>
                     <input type="checkbox" id="numbers" class="access_inputs">
                 </div>
-                <input type ="button" id="generate_password" value="Generate Password">
+                <input type ="button" id="generate_password" class="btn btn-primary" value="Generate Password">
             </div>
         </div>
         <script src="main.js"></script>

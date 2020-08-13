@@ -26,8 +26,10 @@ body{
     width: 20%;
 }
 #copy{
-    width: 20px;
-    height:20px;
+    width: 100%;
+    height:100%;
+    float:left;
+    grid-template:button;
 }
 
 #container{
@@ -42,7 +44,9 @@ body{
 }
 .card{
     width: 70%;
-    height: 15%;
+    display:grid;
+    grid-template-columns: 90% 10%;
+    grid-template-areas: "text button";
  
 }
 .accessors{
@@ -56,6 +60,12 @@ h1{
     text-align: center;
     margin:10% 20% 0 20%;
 }
+#password_text{
+    grid-template: text;
+    text-align:center;
+    margin:0 auto;
+    vertical-align: center;;
+}
 
 .alert{
     background-color:red;
@@ -64,7 +74,4 @@ h1{
     font-weight: bold;
     height:10%;
     margin-bottom: 5%;
-}
-.reduce{
-    margin-bottom:
 }
