@@ -47,7 +47,7 @@ body{
     display:grid;
     grid-template-columns: 90% 10%;
     grid-template-areas: "text button";
- 
+    overflow-wrap: break-word;
 }
 .accessors{
     display: flex;
@@ -63,7 +63,7 @@ h1{
 #password_text{
     grid-template: text;
     text-align:center;
-    margin:0 auto;
+    overflow-wrap: break-word;
     vertical-align: center;;
 }
 
@@ -74,4 +74,16 @@ h1{
     font-weight: bold;
     height:10%;
     margin-bottom: 5%;
+}
+.very_strong{
+    color: #0BEA0A;
+}
+.strong{
+    color: #94FF00;
+}
+.medium{
+    color: #FF9200;
+}
+.weak{
+    color:red;
 }

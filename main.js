@@ -4,11 +4,15 @@ const lowercase = document.querySelector('#lowercase');
 const symbols = document.querySelector('#symbols')
 const numbers = document.querySelector('#numbers');
 const generate_password = document.querySelector('#generate_password');
+const password_strength = document.querySelector('#password_strength')
 const password = document.querySelector('#password_text');
 const copy = document.querySelector('#copy');
 const message = document.querySelector('#message');
+const strengthMessage = document.querySelector('#strength');
+
 
 generate_password.addEventListener("click",verifyInputs);
+copy.addEventListener("click",copyToClipboard);
 
 function verifyInputs(){
     if(password_length.value==0){
@@ -55,4 +59,62 @@ function generatePassword(){
         passwordString += combination[Math.floor(Math.random() * (combination.length))];
     }
     password.textContent = passwordString;
+    getPasswordStrengh(passwordString);
+}
+
+function getPasswordStrengh(passwordStr){
+    strengthMessage.removeAttribute("class");
+    let score = 0;
+    if(password_length.value<8){
+        strengthMessage.textContent = "Weak";
+        strengthMessage.classList.add("weak");
+    }
+    else{
+        if(password_length.value>8){
+            score++;
+        }
+        if(password_length.value>12){
+            score++;
+        }
+        if(passwordStr.match(/\d+/)){ //matching numbers
+            score++;
+        }
+        if(passwordStr.match(/[^\w\s]/)){ //matching symbols
+            score+=2;
+        }
+        if(passwordStr.match(/[a-z]/)){ //matching lower case letters
+            score++;
+        }
+        if(passwordStr.match(/[A-Z]/)){ //matching upper case letters
+            score++;
+        }
+    
+        if(score==7){
+            strengthMessage.textContent = "Very Strong";
+            strengthMessage.classList.add("very_strong");
+            
+        }
+        else if(score>=5){
+            strengthMessage.textContent = "Strong";
+            strengthMessage.classList.add("strong");
+        }
+        else if(score>=3){
+            strengthMessage.textContent = "Medium";
+            strengthMessage.classList.add("medium");
+        }
+        else{
+            strengthMessage.textContent = "Weak";
+            strengthMessage.classList.add("weak");
+        }
+    }
+}
+
+function copyToClipboard(){
+  const passwordStr = password.textContent; 
+  const el = document.createElement('textarea');
+  el.value = passwordStr;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
 }
