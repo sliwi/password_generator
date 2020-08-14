@@ -18,13 +18,22 @@ function verifyInputs(){
     if(password_length.value==0){
         message.innerHTML = "Password length cannot be zero!";
         message.classList.add("alert");
-        setTimeout(removeMessage, 5000);
+        generate_password.className = "btn btn-danger";
+        setTimeout(function(){generate_password.className="btn btn-primary"}, 500);
     }
-   
+    else if(uppercase.checked===false &&lowercase.checked===false && numbers.checked===false &&symbols.checked===false){
+        message.innerHTML = "One checkbox must be checked!";
+        message.classList.add("alert");
+        generate_password.className = "btn btn-danger";
+        setTimeout(function(){generate_password.className="btn btn-primary"}, 500);
+    }
     else{
         generatePassword();
+        generate_password.className = "btn btn-success";
+        setTimeout(function(){generate_password.className="btn btn-primary"}, 500);
     }
 }
+
 
 function removeMessage(){
     message.removeChild(message.firstChild);
@@ -42,7 +51,6 @@ function generatePassword(){
     let passwordString = "";
 
     if(upper!==null){
-        console.log('is this working?');
         combination.push(...upper);
     }
     if(lower!==null){
@@ -54,7 +62,6 @@ function generatePassword(){
     if(symb!==null){
         combination.push(...symb);
     }
-    console.log(length);
     for(let i=0; i<length;i++){
         passwordString += combination[Math.floor(Math.random() * (combination.length))];
     }
@@ -110,11 +117,11 @@ function getPasswordStrengh(passwordStr){
 }
 
 function copyToClipboard(){
-  const passwordStr = password.textContent; 
-  const el = document.createElement('textarea');
-  el.value = passwordStr;
-  document.body.appendChild(el);
-  el.select();
-  document.execCommand('copy');
-  document.body.removeChild(el);
+    const elem = document.createElement('textarea');
+
+    elem.value = password.textContent;
+    document.body.appendChild(elem);
+    elem.select();
+    document.execCommand('copy');
+    document.body.removeChild(elem);
 }
